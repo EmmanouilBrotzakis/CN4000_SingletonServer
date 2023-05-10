@@ -7,12 +7,8 @@ import java.util.logging.Logger;
 
 public class Server {
 
-    /**
-     * @return the instance
-     */
-    public static Server getInstance() {
-        return instance;
-    }
+    
+  
     private ServerSocket ServerSocket;
     private int port = 5678;
     private static Server instance;
@@ -23,5 +19,24 @@ public class Server {
            e.printStackTrace();
         }
         
+    }
+      public static Server getInstance() {
+          if(instance == null)
+              instance = new Server();
+        return instance;
+    }
+      
+      public void start(){
+          System.out.println("Server Started. ");
+          while(true){
+        try {
+            Socket clientSocket = ServerSocket.accept();
+        } catch (IOException e) {
+           e.printStackTrace();
+        }
+      }
+      }
+       public static void main(String[] args) {
+       
     }
 }
